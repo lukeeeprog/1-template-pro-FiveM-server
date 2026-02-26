@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIKI | Project Name</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f1f5f9; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .bg-mesh { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.2) 0px, transparent 50%); }
+        .glass-panel { background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        
+        .wiki-nav-link { cursor: pointer; transition: all 0.2s; border-left: 2px solid transparent; padding-left: 10px; }
+        .wiki-nav-link:hover { color: #818cf8; border-left-color: #312e81; }
+        .wiki-nav-link.active { color: #818cf8; border-left-color: #818cf8; font-weight: bold; }
+
+        
+        .wiki-content { display: none; animation: fadeIn 0.3s ease-in-out; }
+        .wiki-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-8">
+        <a href="index.html" class="text-2xl font-extrabold uppercase tracking-tighter">Project<span class="text-indigo-400">Name</span></a>
+        <div class="space-x-8 text-sm font-medium uppercase tracking-widest opacity-70">
+            <a href="index.html" class="hover:text-indigo-400 transition">Domů</a>
+            <a href="wiki.html" class="text-indigo-400">Wiki</a>
+            <a href="store.html" class="hover:text-indigo-400 transition">Obchod</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mt-12 pb-20">
+        <aside class="md:col-span-1 space-y-8">
+            <div>
+                <h3 class="text-xs font-bold text-indigo-400 uppercase tracking-[0.2em] mb-4">Základy</h3>
+                <ul class="space-y-3 text-slate-400 text-sm mono">
+                    <li><div onclick="showTab('pravidla')" id="link-pravidla" class="wiki-nav-link active">Pravidla serveru</div></li>
+                    <li><div onclick="showTab('pripojeni')" id="link-pripojeni" class="wiki-nav-link">Jak se připojit</div></li>
+                    <li><div onclick="showTab('zkratky')" id="link-zkratky" class="wiki-nav-link">Klávesové zkratky</div></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xs font-bold text-indigo-400 uppercase tracking-[0.2em] mb-4">Frakce</h3>
+                <ul class="space-y-3 text-slate-400 text-sm mono">
+                    <li><div onclick="showTab('lspd')" id="link-lspd" class="wiki-nav-link">LSPD</div></li>
+                    <li><div onclick="showTab('ems')" id="link-ems" class="wiki-nav-link">EMS</div></li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="md:col-span-3">
+            <div class="glass-panel p-8 md:p-12 rounded-[2rem]">
+                
+                <div id="pravidla" class="wiki-content active">
+                    <h1 class="text-4xl font-extrabold mb-6">Pravidla serveru</h1>
+                    <div class="space-y-6 text-slate-300 leading-relaxed">
+                        <div class="p-4 bg-white/5 rounded-xl border-l-4 border-indigo-500">
+                            <h2 class="font-bold text-white uppercase text-sm mb-1">Roleplay Standard</h2>
+                            <p>Doplň svůj text.</p>
+                        </div>
+                        <p>Doplň svůj text.</p>
+                        <p>Doplň svůj text.</p>
+                    </div>
+                </div>
+
+                <div id="pripojeni" class="wiki-content">
+                    <h1 class="text-4xl font-extrabold mb-6">Jak se připojit</h1>
+                    <p class="text-slate-300 mb-4">Náš server běží na nejnovější verzi FiveM. Postupuj podle těchto kroků:</p>
+                    <ol class="list-decimal list-inside space-y-4 text-slate-300">
+                        <li>Doplň svůj text.<a href="https://fivem.net/" class="text-indigo-400 underline">FiveM klienta</a>.</li>
+                        <li>Doplň svůj text. <kbd class="bg-slate-700 px-2 py-1 rounded">F8</kbd>.</li>
+                        <li>Doplň svůj text. <code class="text-indigo-300">connect ip.tvojeshodnota.cz</code></li>
+                    </ol>
+                </div>
+
+                <div id="zkratky" class="wiki-content">
+                    <h1 class="text-4xl font-extrabold mb-6">Klávesové zkratky</h1>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="p-4 bg-white/5 rounded-lg"> <span class="text-indigo-400 font-bold">F1</span> - Telefon </div>
+                        <div class="p-4 bg-white/5 rounded-lg"> <span class="text-indigo-400 font-bold">F2</span> - Inventář </div>
+                        <div class="p-4 bg-white/5 rounded-lg"> <span class="text-indigo-400 font-bold">F3</span> - Animace </div>
+                        <div class="p-4 bg-white/5 rounded-lg"> <span class="text-indigo-400 font-bold">K</span> - Zapnout pásy </div>
+                    </div>
+                </div>
+
+                <div id="lspd" class="wiki-content">
+                    <h1 class="text-4xl font-extrabold mb-6 italic text-blue-400">LSPD</h1>
+                    <p class="text-slate-300 italic mb-4 font-light">"To Protect and to Serve"</p>
+                    <p class="text-slate-300">Doplň svůj text.</p>
+                </div>
+            </div>
+
+              <div id="ems" class="wiki-content">
+                    <h1 class="text-4xl font-extrabold mb-6 italic text-blue-400">EMS</h1>
+                    <p class="text-slate-300 italic mb-4 font-light">"To Protect and to Serve"</p>
+                    <p class="text-slate-300">Doplň svůj text.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showTab(tabId) {
+            
+            const contents = document.querySelectorAll('.wiki-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            
+            const links = document.querySelectorAll('.wiki-nav-link');
+            links.forEach(link => link.classList.remove('active'));
+
+            
+            document.getElementById(tabId).classList.add('active');
+
+            
+            document.getElementById('link-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
